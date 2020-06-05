@@ -199,7 +199,7 @@ TEST_F(GenericFrame_test, decode) {
 
 	const SPNNumeric* wheelSpeed = static_cast<SPNNumeric*>(ccvs.getSPN(84));
 
-	ASSERT_EQ(wheelSpeed->getFormattedValue(), 80);
+	ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(wheelSpeed->getFormattedValue()), 80);
 
 	{
 		const SPNStatus* brakeSwitch = static_cast<SPNStatus*>(ccvs.getSPN(597));

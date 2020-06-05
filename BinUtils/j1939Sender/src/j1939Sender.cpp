@@ -935,7 +935,7 @@ void parseSetFrameCommand(std::list<std::string> arguments) {
 					double valueNumber = std::stod(value);
 					SPNNumeric* spnNum = static_cast<SPNNumeric*>(spn);
 					if(spnNum->setFormattedValue(valueNumber)) {
-						std::cout << "Spn " << spn->getSpnNumber() << " from frame " << frame->getName() << " set to value " << spnNum->getFormattedValue() << std::endl;
+						std::cout << "Spn " << spn->getSpnNumber() << " from frame " << frame->getName() << " set to value " << std::get<SPN::SPN_NUMERIC>(spnNum->getFormattedValue()) << std::endl;
 					}
 				}	break;
 				case SPN::SPN_STATUS:

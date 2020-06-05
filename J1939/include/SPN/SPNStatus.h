@@ -32,7 +32,7 @@ public:
 	void decode(const u8* buffer, size_t length);
 	void encode(u8* buffer, size_t length) const;
 
-	EType getType() const { return SPN_STATUS; }
+	constexpr EType getType() const override { return SPN_STATUS; }
 
 	u8 getBitOffset() const { return mStatSpec->getBitOffset(); }
 
@@ -52,6 +52,8 @@ public:
 	std::shared_ptr<const SPNStatusSpec> getStatusSpec() const { return mStatSpec; }
 
 	void copy(const SPN& other) override;
+
+    FormattedValue getFormattedValue() const override;
 
 	IMPLEMENT_CLONEABLE(SPN, SPNStatus);
 

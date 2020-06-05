@@ -26,7 +26,7 @@ public:
 	void decode(const u8* buffer, size_t length) override;
 	void encode(u8* buffer, size_t length) const override;
 
-	EType getType() const { return SPN_STRING; }
+	constexpr EType getType() const override { return SPN_STRING; }
 
 	std::string toString() const override;
 
@@ -43,6 +43,8 @@ public:
 	void setOffset(size_t offset) override { mOffset = offset; }
 
 	void copy(const SPN& other) override;
+
+    FormattedValue getFormattedValue() const override;
 
 	IMPLEMENT_CLONEABLE(SPN, SPNString);
 

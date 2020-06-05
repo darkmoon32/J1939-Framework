@@ -996,7 +996,7 @@ Json::Value frameToJson(const J1939Frame* frame) {
 
 				const SPNNumeric *spnNum = static_cast<const SPNNumeric *>(spn);
 
-				jsonVal["spns"][j]["value"] = spnNum->getFormattedValue();
+				jsonVal["spns"][j]["value"] = std::get<SPN::SPN_NUMERIC>(spnNum->getFormattedValue());
 				jsonVal["spns"][j]["units"] = spnNum->getUnits();
 
 			}	break;

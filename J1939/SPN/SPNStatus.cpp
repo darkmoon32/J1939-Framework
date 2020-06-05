@@ -99,4 +99,8 @@ void SPNStatus::copy(const SPN& other) {
 
 }
 
+SPN::FormattedValue SPNStatus::getFormattedValue() const {
+    return mValue;
+}
+
 } /* namespace J1939 */

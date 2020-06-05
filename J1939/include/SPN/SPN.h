@@ -10,6 +10,7 @@
 
 #include <memory>
 #include <string>
+#include <variant>
 
 #include <Types.h>
 #include <ICloneable.h>
@@ -27,6 +28,8 @@ public:
 		SPN_STATUS = 1,
 		SPN_STRING = 2
 	};
+
+    using FormattedValue = std::variant<double, u8, std::string>;
 
 private:
 	std::shared_ptr<const SPNSpec> mSpec;
@@ -68,6 +71,7 @@ public:
 
 	virtual void copy(const SPN& other) = 0;
 
+    virtual FormattedValue getFormattedValue() const = 0;
 };
 
 } /* namespace J1939 */

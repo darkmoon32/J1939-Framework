@@ -43,7 +43,7 @@ TEST(SPNNumeric_test, copy_constructor) {
 	ASSERT_EQ(numeric2.getUnits(), "%");
 	ASSERT_EQ(numeric2.getType(), SPN::SPN_NUMERIC);
 
-	ASSERT_EQ(numeric2.getFormattedValue(), 38);
+	ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(numeric2.getFormattedValue()), 38);
 
 
 }
@@ -161,7 +161,7 @@ TEST(SPNNumeric_test, decode) {
 
 			numeric.decode(raw, sizeof(raw));
 
-			ASSERT_EQ(numeric.getFormattedValue(), 56);
+			ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(numeric.getFormattedValue()), 56);
 
 
 		}
@@ -179,7 +179,7 @@ TEST(SPNNumeric_test, decode) {
 
 			numeric1.decode(raw, sizeof(raw));
 
-			ASSERT_EQ(numeric1.getFormattedValue(), 38);
+			ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(numeric1.getFormattedValue()), 38);
 
 		}
 
@@ -194,7 +194,7 @@ TEST(SPNNumeric_test, decode) {
 
 			numeric2.decode(raw, sizeof(raw));
 
-			ASSERT_EQ(numeric2.getFormattedValue(), 5211937.2);
+			ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(numeric2.getFormattedValue()), 5211937.2);
 
 		}
 
@@ -211,7 +211,7 @@ TEST(SPNNumeric_test, decode) {
 
 			numeric3.decode(raw, sizeof(raw));
 
-			ASSERT_EQ(numeric3.getFormattedValue(), 65495982.25);
+			ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(numeric3.getFormattedValue()), 65495982.25);
 
 		}
 
@@ -235,7 +235,7 @@ TEST(SPNNumeric_test, decode) {
 
 			numeric3.decode(raw, 3);
 
-			ASSERT_EQ(numeric3.getFormattedValue(), 65495982.25);
+			ASSERT_EQ(std::get<SPN::SPN_NUMERIC>(numeric3.getFormattedValue()), 65495982.25);
 
 		}
 

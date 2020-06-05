@@ -104,4 +104,8 @@ void SPNString::copy(const SPN& other) {
 
 }
 
+SPN::FormattedValue SPNString::getFormattedValue() const {
+    return mValue;
+}
+
 } /* namespace J1939 */

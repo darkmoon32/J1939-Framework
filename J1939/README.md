@@ -64,7 +64,7 @@ void main() {
 	
 	
 	//Vehicle Speed
-	double speed = wheelSpeed->getFormattedValue();
+	double speed = std::get<SPN::SPN_NUMERIC>(wheelSpeed->getFormattedValue());
 
 }
 

@@ -60,9 +60,9 @@ void SPNHistory::addSample(const Utils::TimeStamp& timeStamp, const SPN& spn) {
 	case SPN::SPN_NUMERIC: {
 		const SPNNumeric *spnNum = static_cast<const SPNNumeric *>(&spn);
 
-		if(!mSamples.empty() && mSamples.back().getNumeric() == spnNum->getFormattedValue())		return;		//Value did not change
+		if(!mSamples.empty() && mSamples.back().getNumeric() == std::get<SPN::SPN_NUMERIC>(spnNum->getFormattedValue()))		return;		//Value did not change
 
-		sample = Sample(timeStamp, spnNum->getFormattedValue());
+		sample = Sample(timeStamp, std::get<SPN::SPN_NUMERIC>(spnNum->getFormattedValue()));
 	}	break;
 	case SPN::SPN_STATUS: {
 		const SPNStatus *spnStat = static_cast<const SPNStatus *>(&spn);

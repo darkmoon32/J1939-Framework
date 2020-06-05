@@ -24,14 +24,14 @@ public:
     		double formatGain = 0, double formatOffset = 0, u8 byteSize = 0, const std::string& units = "");
 	virtual ~SPNNumeric();
 
-	double getFormattedValue() const ;
+	FormattedValue getFormattedValue() const override;
 
 	bool setFormattedValue(double value);
 
     void decode(const u8* buffer, size_t length);
     void encode(u8* buffer, size_t length) const;
 
-	EType getType() const { return SPN_NUMERIC; }
+	constexpr EType getType() const override { return SPN_NUMERIC; }
 
 	u8 getByteSize() const {
 		return mNumSpec->getByteSize();
